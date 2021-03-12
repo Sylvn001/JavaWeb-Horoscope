@@ -7,7 +7,7 @@ package util;
 public final class Signo {
     
     public static String getSigno(int dia, int mes){
-        if((dia>=21 && mes==3) || (dia<=20 && mes==4))
+        if((dia >= 21 && mes == 3 ) || (dia <= 20 && mes == 4))
             return "Aries";
         else
         if((dia>=21 && mes==4) || (dia<=20 && mes==5))

@@ -14,7 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.json.JSONObject;
+import org.json.simple.JSONObject;
 
 import util.Horoscopo;
 import util.Signo;
@@ -49,7 +49,7 @@ public class ServletGetHoroscope extends HttpServlet {
                 dados = arq.readLine().split("#");
                 if(dados[0].equalsIgnoreCase(signo))
                     flag = true;
-            }while(arq.getFilePointer()<arq.length() || flag!=true);
+            }while(arq.getFilePointer()<arq.length() && flag!=true);
             arq.close();  
         }
         catch (IOException e) {
