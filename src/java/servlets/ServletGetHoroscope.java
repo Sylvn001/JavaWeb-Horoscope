@@ -63,11 +63,6 @@ public class ServletGetHoroscope extends HttpServlet {
             obj.put("imagem", dados[1]);
             obj.put("previsao", dados[2]);
             out.print(obj);
-//            Horoscopo h = new Horoscopo(dados[0], dados[1], dados[2]);
-            // out.print(h.getSigno());
-            // out.print(h.getImagem());
-            // out.print(h.getPrevisao());
-
         }
     }
 

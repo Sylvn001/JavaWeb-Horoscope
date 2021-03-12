@@ -1,59 +1,31 @@
 
 
 const formsigno = document.getElementById('formSigno');
+const card = document.querySelector('.card');
+card.style.display='none';
 formsigno.addEventListener('submit', (e) => {
     e.preventDefault();
-    // const formData = new FormData(formsigno);
-    // fetch('./ServletGetHoroscope', {
-    //     method: 'post',
-    //     body: formData
-    // }).then((response) => {
-    //     response => response.text();
-    // }).then((text) => {
-    //     console.log(text);
-    // });
-
-
     var httpRequest = new XMLHttpRequest();
     httpRequest.open("post","./ServletGetHoroscope");
-    var formData = new FormData(formsigno); //para recuperar os parâmetros do form
+    var formData = new FormData(formsigno); 
     const data = new URLSearchParams();
 
-    for (const pair of formData)   //inserindo os parâmetros individualmente
+    for (const pair of formData) 
         data.append(pair[0], pair[1]);
 
-    httpRequest.send(data); // enviando os parâmetros junto com a chamada do servlet
+    httpRequest.send(data); 
     httpRequest.onreadystatechange = function () 
     {
         if (httpRequest.readyState === 4 && httpRequest.status === 200)
         {
-           //document.getElementById("imagem").src = innerHTML=httpRequest.responseText;
-//           console.log(httpRequest.responseText);
-           var teste = httpRequest.responseText;
-           console.log(teste);
+            var teste = httpRequest.responseText;
+            var obj = JSON.parse(teste);
+            console.log(obj);
+
+            card.style.display='block';
+            card.querySelector('.img').src = obj.imagem;
+            card.querySelector('.card-title').innerHTML = obj.signo;
+            card.querySelector('.card-text').innerHTML = obj.previsao;
         }
     };
 });
-
-
-// function mostraValor(myform)
-// {
-//     event.preventDefault(); //evitar a submissão/reload da página
-
-//     var httpRequest = new XMLHttpRequest();
-//     httpRequest.open("post","./ServletGeraPrevisao");
-//     var formData = new FormData(myform); //para recuperar os parâmetros do form
-//     const data = new URLSearchParams();
-
-//     for (const pair of formData)   //inserindo os parâmetros individualmente
-//         data.append(pair[0], pair[1]);
-
-//     httpRequest.send(data); // enviando os parâmetros junto com a chamada do servlet
-//     httpRequest.onreadystatechange = function () 
-//     {
-//         if (httpRequest.readyState === 4 && httpRequest.status === 200)
-//            document.getElementById("previsao").innerHTML=httpRequest.responseText;
-
-//     };
-
-// }

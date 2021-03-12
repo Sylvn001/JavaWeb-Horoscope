@@ -40,15 +40,22 @@
                     <a class="btn botao" href="Servletloggout">Logout <i class="ps-2 fas fa-sign-out-alt"></i></a>
                 </div>
             </nav>
-            <div class="container pt-5">
+            <div class="container pt-5 pb-5">
                 <h5 class="mb-5">Olá <strong><%= user %></strong>, consulte o seu horóscopo de hoje!</h5>
                 
-                <form method="post" id="formSigno" class="col-6 mx-auto bg-light p-5 rounded-3 text-center shadow-sm">
-                    <div class="mb-3">
-                        <input type="date" name="data" id="data" class="form-control-lg border-0 shadow-sm w-100">
-                        <button type="submit" class="btn botao btn-lg w-50 mt-5 mx-auto"> Previsões <i class="fas fa-long-arrow-alt-right"></i> </button>
+                <form method="post" id="formSigno" class="col-10 mx-auto pb-5 bg-light p-5 rounded-3 text-center shadow-sm">
+                    <div class="mb-3 col-4 mx-auto d-flex justify-content-center flex-column">
+                        <input type="date" name="data" id="data" class="form-control-lg border-0 shadow-sm w-100 col-5">
+                        <button type="submit" class="btn botao btn-lg w-100 mt-2 mx-auto"> Previsões <i class="fas fa-long-arrow-alt-right"></i> </button>
                     </div>
-                    <img src="" id="imagem" alt="" width="50" height="50"> 
+                    
+                    <div class="card">
+                        <img class="mx-auto my-5 d-block img " src="" alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title"></h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
                 </form>
                 
             </div>
